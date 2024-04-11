@@ -1,3 +1,5 @@
+package Pages;
+
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -19,6 +21,8 @@ public class HomePage {
     private final SelenideElement openVideo = $(By.xpath("//*[@id='hook_Block_TopMenuVideo']"));
     private final SelenideElement playVideo = $(By.xpath("//div[@class='h-mod video-card_preview']"));
     private final SelenideElement friendsButton = $(By.xpath("//*[@data-l='t,userFriend']"));
+    private final SelenideElement openPhoto = $(By.xpath("//a[@data-l='t,userPhotos']"));
+
     private final String CorrectLogin = "technopol50";
     private final String CorrectPassword = "technopolisPassword";
 
@@ -37,21 +41,24 @@ public class HomePage {
     }
 
     public void clickMessenger() {
-        openMessengerButton.click();
-        searchFriends.click();
+        openMessengerButton.shouldBe().click();
+        searchFriends.shouldBe().click();
     }
     public void clickFiendsButton(){
-        friendsButton.click();
+        friendsButton.shouldBe().click();
     }
 
     public void setPlayMusic() {
-        openMusic.click();
-        playMusic.click();
+        openMusic.shouldBe().click();
+        playMusic.shouldBe().click();
     }
 
     public void setPlayVideo() {
-        openVideo.click();
-        playVideo.click();
+        openVideo.shouldBe().click();
+        playVideo.shouldBe().click();
 
+    }
+    public void clickPhoto() {
+        openPhoto.shouldBe().click();
     }
 }

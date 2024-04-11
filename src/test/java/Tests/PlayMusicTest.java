@@ -1,15 +1,17 @@
+package Tests;
+
+import Pages.HomePage;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class FriendsButtonTest extends BaseTest {
+public class PlayMusicTest {
     HomePage homePage = new HomePage();
+
     @Test
-    public void clickFrendsButton() throws InterruptedException {
+    public void playMusic() throws InterruptedException {
         homePage.openLoggedIn().checkMainPage();
-        homePage.clickFiendsButton();
+        homePage.setPlayMusic();
         TimeUnit.SECONDS.sleep(3);
     }
-
 }
-
