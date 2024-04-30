@@ -9,7 +9,7 @@ public class OpenMessengerTest extends BaseTest {
 
     @Test
     public void clickOpenMessenger(){
-        homePage.openLoggedIn().checkMainPage();
+        homePage.openLoggedIn();
         homePage.clickMessenger();
     }
 

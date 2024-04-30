@@ -9,7 +9,7 @@ public class LoginPageTests extends BaseTest {
 
     @Test
     public void checkLoginPageTest() {
-        loginPage.open().checkLoginPage();
+        loginPage.open();
     }
 
     @Test

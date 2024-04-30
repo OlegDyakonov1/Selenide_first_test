@@ -1,36 +1,33 @@
 package Pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+
 public class LoginPage {
-    private final SelenideElement loginInput = $(By.xpath("//*[@id=\"field_email\"]"));
-    private final SelenideElement passwordInput = $(By.xpath("//*[@id=\"field_password\"]"));
-    private final SelenideElement loginButton = $(By.xpath("//div[@class='button-pro __wide']"));
-    private final SelenideElement loginErrorText = $(By.xpath("//div[@class='input-e login_error']"));
+    private static final SelenideElement LOGININPUT = $(By.xpath("//*[@id=\"field_email\"]"));
+    private static final SelenideElement PASSWORDINPUT = $(By.xpath("//*[@id=\"field_password\"]"));
+    private static final SelenideElement LOGINBUTTON = $(By.xpath("//div[@class='button-pro __wide']"));
+    private static final SelenideElement LOGINERRORTEXT = $(By.xpath("//div[@class='input-e login_error']"));
 
 
     public LoginPage open() {
-        Selenide.open("/");
+        LOGININPUT.shouldBe();
+        PASSWORDINPUT.shouldBe();
+        LOGINBUTTON.shouldBe();
         return this;
     }
 
-    public void checkLoginPage() {
-        loginInput.shouldBe();
-        passwordInput.shouldBe();
-        loginButton.shouldBe();
-    }
 
     public void signIn(String login, String password) {
-        loginInput.setValue(login);
-        passwordInput.setValue(password).pressEnter();
+        LOGININPUT.setValue(login);
+        PASSWORDINPUT.setValue(password).pressEnter();
     }
 
     public void checkIncorrectLogin() {
-        loginErrorText.shouldBe();
-        Assertions.assertEquals("Неправильно указан логин и/или пароль", loginErrorText.getText());
+        LOGINERRORTEXT.shouldBe();
+        Assertions.assertEquals("Неправильно указан логин и/или пароль", LOGINERRORTEXT.getText());
     }
 }
